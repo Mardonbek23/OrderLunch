@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="6dp"
+    android:orientation="horizontal"
+    android:padding="2dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="90dp"
+        android:layout_height="70dp"
+        android:src="@drawable/ic_food" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="4dp">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="osh"
+            android:textColor="#454545"
+            android:textSize="19sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="svet ochib qolibdi"
+            android:textColor="#E91E63"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1 kishilik"
+            android:textColor="#454545"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <Switch
+        android:id="@+id/switch_meal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+    <Button
+        android:id="@+id/btn_order"
+        android:layout_width="70dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="Tanla"
+        android:textAllCaps="false"
+        android:textSize="12dp"
+        android:visibility="gone" />
+</LinearLayout>

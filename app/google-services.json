@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "996018978565",
+    "project_id": "orderlunch-8b7bb",
+    "storage_bucket": "orderlunch-8b7bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:996018978565:android:679b457e16bac77bf2016c",
+        "android_client_info": {
+          "package_name": "com.example.orderlunch"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "996018978565-5d5cjpect8lhep7k5gja4ccpj1jmn4qb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.orderlunch",
+            "certificate_hash": "c592ee6c0f86eeda389a6969d3ac0260e877a06d"
+          }
+        },
+        {
+          "client_id": "996018978565-h8hnmc4eit36adl4144lomod8n529olb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTiPG8nenAj64pNlYPy_Df34ePV7Z5n78"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "996018978565-h8hnmc4eit36adl4144lomod8n529olb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
