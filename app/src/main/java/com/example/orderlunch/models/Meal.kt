@@ -3,6 +3,7 @@ package com.example.orderlunch.models
 class Meal {
     var id: String = ""
     var name: String = ""
+    var price: Double = 0.0
     var create_date: Long = 0L
     var description: String? = null
     var composition: String? = null
@@ -12,12 +13,36 @@ class Meal {
     var count: Int? = 0
     var reason_nullable: String? = null
     var isHave: Boolean = true
+
     constructor()
 
 
     constructor(
         id: String,
         name: String,
+        price: Double,
+        create_date: Long,
+        description: String?,
+        composition: String?,
+        image: String?,
+        amount: String?,
+        date_txt: String?
+    ) {
+        this.id = id
+        this.name = name
+        this.price = price
+        this.create_date = create_date
+        this.description = description
+        this.composition = composition
+        this.image = image
+        this.amount = amount
+        this.date_txt = date_txt
+    }
+
+    constructor(
+        id: String,
+        name: String,
+        price: Double,
         create_date: Long,
         isHave: Boolean,
         date_txt: String?,
@@ -30,6 +55,7 @@ class Meal {
     ) {
         this.id = id
         this.name = name
+        this.price = price
         this.create_date = create_date
         this.isHave = isHave
         this.date_txt = date_txt
@@ -39,26 +65,6 @@ class Meal {
         this.composition = composition
         this.amount = amount
         this.image = image
-    }
-
-    constructor(
-        id: String,
-        name: String,
-        create_date: Long,
-        description: String?,
-        composition: String?,
-        image: String?,
-        amount: String?,
-        date_txt: String?
-    ) {
-        this.id = id
-        this.name = name
-        this.create_date = create_date
-        this.description = description
-        this.composition = composition
-        this.image = image
-        this.amount = amount
-        this.date_txt = date_txt
     }
 
 

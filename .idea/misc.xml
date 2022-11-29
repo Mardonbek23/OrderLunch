@@ -13,6 +13,7 @@
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/activity_user.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/dialog_add_meal.xml" value="0.33" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/dialog_loading.xml" value="0.358695652173913" />
+        <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/dialog_order_detail.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/fragment_business.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/fragment_calculate.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/fragment_head_chef.xml" value="0.35260416666666666" />
@@ -26,6 +27,8 @@
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/fragment_user_profile.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/fragment_user_statistics.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/item_meal.xml" value="0.25" />
+        <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/item_order_list.xml" value="0.33" />
+        <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/layout/item_orders.xml" value="0.358695652173913" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/menu/menu_bottom.xml" value="0.36666666666666664" />
         <entry key="..\:/learningProjects/OrderLunch/app/src/main/res/menu/menu_bottom_user.xml" value="0.36666666666666664" />
       </map>

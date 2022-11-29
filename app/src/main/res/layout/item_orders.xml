@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_account" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="12dp">
+
+        <TextView
+            android:id="@+id/user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bashar Nazarov" />
+
+        <TextView
+            android:id="@+id/meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Osh"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:id="@+id/ll_comment"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Comment: " />
+
+            <TextView
+                android:id="@+id/comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goshti ni yaxshiroq qiling aka "
+                android:textColor="#E91E63" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -80,6 +80,7 @@ class FragmentCalculate : Fragment() {
                         list.add(value)
                     }
                 }
+                binding.tvCount.text = list.size.toString()
                 list.reverse()
                 mealAdapter.notifyDataSetChanged()
                 binding.progress.hide()
@@ -112,13 +113,15 @@ class FragmentCalculate : Fragment() {
         }
         customdialogBinding.save.setOnClickListener {
             val name = customdialogBinding.name.text
-            if (name != null && name.length > 1) {
+            val price = customdialogBinding.price.text
+            if (name != null && name.length > 1 && price != null && price.length > 2) {
                 val key = reference.push().key
                 val currentTimeMillis = System.currentTimeMillis()
                 val meal =
                     Meal(
                         key.toString(),
                         name.toString(),
+                        customdialogBinding.price.text.toString().toDouble(),
                         currentTimeMillis,
                         customdialogBinding.description.text.toString(),
                         customdialogBinding.composition.text.toString(),
@@ -143,7 +146,7 @@ class FragmentCalculate : Fragment() {
             } else {
                 Toast.makeText(
                     requireContext(),
-                    "Taom nomi 2 va undan ortiq belgidan iborat bolishi kerak!",
+                    "Taom nomi 2 va undan ortiq belgidan iborat bolishi kerak va narx kiritilishi kerak!",
                     Toast.LENGTH_SHORT
                 ).show()
             }

@@ -30,6 +30,15 @@
         android:hint="Taom nomi(majburiy)" />
 
     <EditText
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:digits="0123456789"
+        android:hint="Taom narxi(majburiy)"
+        android:inputType="number" />
+
+    <EditText
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
