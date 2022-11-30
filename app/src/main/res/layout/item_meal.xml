@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="6dp"
+    android:id="@+id/ll_container"
     android:orientation="horizontal"
     android:padding="2dp">
 
@@ -34,8 +35,8 @@
             android:id="@+id/reason"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="svet ochib qolibdi"
             android:textColor="#E91E63"
+            android:textSize="17dp"
             android:visibility="gone" />
 
         <TextView
@@ -47,13 +48,21 @@
             android:visibility="gone" />
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/switch_meal"
+    <LinearLayout
+        android:id="@+id/ll_switch"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:visibility="gone"
-        tools:ignore="UseSwitchCompatOrMaterialXml" />
+        android:layout_height="match_parent">
+
+        <Switch
+            android:id="@+id/switch_meal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clickable="false"
+            android:visibility="gone"
+            tools:ignore="UseSwitchCompatOrMaterialXml" />
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/btn_order"

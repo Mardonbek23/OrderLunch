@@ -14,7 +14,9 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orderlunch.R
 import com.example.orderlunch.adapters.MealAdapter
+import com.example.orderlunch.adapters.OrderListAdapter
 import com.example.orderlunch.databinding.DialogAddMealBinding
+import com.example.orderlunch.databinding.DialogOrderDetailBinding
 import com.example.orderlunch.databinding.FragmentCalculateBinding
 import com.example.orderlunch.models.Meal
 import com.example.orderlunch.utils.dialog_loading
@@ -33,6 +35,7 @@ class FragmentCalculate : Fragment() {
     lateinit var reference: DatabaseReference
 
     lateinit var mealAdapter: MealAdapter
+
     lateinit var list: ArrayList<Meal>
     var image: String? = null
     override fun onCreateView(
@@ -49,6 +52,7 @@ class FragmentCalculate : Fragment() {
 
     private fun setRv() {
         list = ArrayList()
+
         mealAdapter = MealAdapter(list, object : MealAdapter.OnClickListeners {
             override fun onEdit(position: Int, meal: Meal) {
 
@@ -59,6 +63,88 @@ class FragmentCalculate : Fragment() {
             }
 
             override fun onOrder(position: Int, meal: Meal) {
+
+            }
+
+            override fun onNotHaveMeal(position: Int, meal: Meal) {
+                if (meal.isHave) {
+                    val builder: AlertDialog.Builder =
+                        AlertDialog.Builder(requireContext())
+                    val customdialogBinding: DialogOrderDetailBinding =
+                        DialogOrderDetailBinding.inflate(LayoutInflater.from(requireContext()))
+                    builder.setView(customdialogBinding.root)
+                    builder.setCancelable(false)
+                    customdialogBinding.comment.hint = "Sabab..."
+                    customdialogBinding.name.text = meal.name
+                    val create = builder.create()
+                    customdialogBinding.cancel.setOnClickListener {
+                        create.dismiss()
+                    }
+                    customdialogBinding.order.text = "Ok"
+                    customdialogBinding.order.setOnClickListener {
+                        if (customdialogBinding.comment.text.toString().length > 2) {
+                            val dialogLoading = requireContext().dialog_loading("", false, false)
+                            dialogLoading.show()
+                            meal.isHave = false
+                            meal.reason_nullable = customdialogBinding.comment.text.toString()
+                            reference.child(meal.id)
+                                .setValue(meal, object : DatabaseReference.CompletionListener {
+                                    override fun onComplete(
+                                        error: DatabaseError?,
+                                        ref: DatabaseReference
+                                    ) {
+                                        if (error == null)
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "Bajarildi!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        else
+                                            Toast.makeText(
+                                                requireContext(),
+                                                "Xatolik!",
+                                                Toast.LENGTH_SHORT
+                                            ).show()
+                                        dialogLoading.dismiss()
+                                        create.dismiss()
+                                    }
+                                })
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "Sabab uzunligi 2 ta belgidan kop bolishi kerak!",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    create.show()
+                } else {
+                    val dialogLoading = requireContext().dialog_loading("", false, false)
+                    dialogLoading.show()
+                    meal.reason_nullable = ""
+                    meal.isHave = true
+                    reference.child(meal.id)
+                        .setValue(meal, object : DatabaseReference.CompletionListener {
+                            override fun onComplete(
+                                error: DatabaseError?,
+                                ref: DatabaseReference
+                            ) {
+                                if (error == null)
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Bajarildi!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                else
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Xatolik!",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                dialogLoading.dismiss()
+                            }
+                        })
+                }
 
             }
         }, false)
@@ -127,7 +213,8 @@ class FragmentCalculate : Fragment() {
                         customdialogBinding.composition.text.toString(),
                         image,
                         customdialogBinding.amount.text.toString(),
-                        pattern.format(currentTimeMillis)
+                        pattern.format(currentTimeMillis),
+                        customdialogBinding.switchPersonal.isChecked
                     )
                 val dialogLoading =
                     requireContext().dialog_loading("", false, is_close_visibility = false)

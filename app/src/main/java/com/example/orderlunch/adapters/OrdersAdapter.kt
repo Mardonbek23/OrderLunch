@@ -30,10 +30,13 @@ class OrdersAdapter(var list: List<Order>, var listeners: OnClickListeners) :
         fun onBind(order: Order, position: Int) {
             binding.apply {
                 user.text = order.user
-                meal.text = order.name
+                meal.text = order.meal!!.name
                 if (order.comment != null&& order.comment.toString().isNotEmpty()) {
                     llComment.show()
                     comment.text = order.comment
+                }
+                else{
+                    llComment.hide()
                 }
             }
         }

@@ -62,9 +62,8 @@ class UserCreateOrderFragment : Fragment() {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val value = snapshot.getValue(Order::class.java)
                     if (value != null) {
-                        binding.tvOrder.text = value.name
-                    }
-                    else{
+                        binding.tvOrder.text = value.meal!!.name
+                    } else {
                         binding.tvOrder.text = "Tanlanmagan"
                     }
                 }
@@ -98,6 +97,10 @@ class UserCreateOrderFragment : Fragment() {
                 orderMeal(meal)
             }
 
+            override fun onNotHaveMeal(position: Int, meal: Meal) {
+                //not for user
+            }
+
 
         }, true)
         binding.rv.adapter = mealAdapter
@@ -114,7 +117,7 @@ class UserCreateOrderFragment : Fragment() {
                 list.clear()
                 for (child in children) {
                     val value = child.getValue(Meal::class.java)
-                    if (value != null) {
+                    if (value != null && value.isPersonal) {
                         list.add(value)
                     }
                 }
@@ -139,12 +142,12 @@ class UserCreateOrderFragment : Fragment() {
         customdialogBinding.cancel.setOnClickListener {
             create.dismiss()
         }
+        customdialogBinding.name.text = meal.name
         customdialogBinding.order.setOnClickListener {
             val currentTimeMillis = System.currentTimeMillis()
             val order = Order(
                 account.id,
-                meal.id,
-                meal.name,
+                meal,
                 account.userName,
                 customdialogBinding.comment.text.toString(),
                 currentTimeMillis,

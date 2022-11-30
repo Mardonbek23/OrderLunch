@@ -11,11 +11,12 @@ import com.example.orderlunch.databinding.ItemOrdersBinding
 import com.example.orderlunch.models.Meal
 import com.example.orderlunch.models.Order
 import com.example.orderlunch.models.OrderItem
+import com.example.orderlunch.utils.currencyFormat
 import com.example.orderlunch.utils.hide
 import com.example.orderlunch.utils.show
 
 
-class OrderListAdapter(var list: List<OrderItem>, var listeners: OnClickListeners) :
+class OrderListAdapter(var list: List<OrderItem>) :
     RecyclerView.Adapter<OrderListAdapter.MyViewHolder>() {
 
     inner class MyViewHolder(val binding: ItemOrderListBinding) :
@@ -33,6 +34,7 @@ class OrderListAdapter(var list: List<OrderItem>, var listeners: OnClickListener
             binding.apply {
                 name.text = item.name
                 count.text = item.count.toString()
+                price.text = "${item.count}x${currencyFormat(item.price!!)}"
             }
         }
     }
@@ -56,8 +58,5 @@ class OrderListAdapter(var list: List<OrderItem>, var listeners: OnClickListener
         return list.size
     }
 
-    interface OnClickListeners {
-        fun onClick(position: Int, order: Order)
-    }
 
 }

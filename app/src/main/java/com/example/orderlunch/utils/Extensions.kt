@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AlertDialog
 import com.example.orderlunch.databinding.DialogLoadingBinding
+import java.text.DecimalFormat
+import java.text.NumberFormat
 
 
 fun View.show() {
@@ -40,4 +42,9 @@ fun Context.dialog_loading(
     }
     create.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
     return create
+}
+
+fun currencyFormat(double: Double): String {
+    val formatter: NumberFormat = DecimalFormat("#,###")
+    return formatter.format(double)
 }

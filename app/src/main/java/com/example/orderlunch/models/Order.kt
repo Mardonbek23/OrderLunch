@@ -2,8 +2,7 @@ package com.example.orderlunch.models
 
 class Order {
     var id: String = ""
-    var mealId: String = ""
-    var name: String = ""
+    var meal: Meal? = null
     var user: String = ""
     var comment: String? = null
     var createDate: Long = 0L
@@ -14,8 +13,7 @@ class Order {
     constructor()
     constructor(
         id: String,
-        mealId: String,
-        name: String,
+        meal: Meal?,
         user: String,
         comment: String?,
         createDate: Long,
@@ -24,8 +22,7 @@ class Order {
         updateDatetxt: String
     ) {
         this.id = id
-        this.mealId = mealId
-        this.name = name
+        this.meal = meal
         this.user = user
         this.comment = comment
         this.createDate = createDate

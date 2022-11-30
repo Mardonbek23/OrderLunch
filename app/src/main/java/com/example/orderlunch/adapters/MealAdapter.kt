@@ -1,5 +1,6 @@
 package com.example.orderlunch.adapters
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,9 @@ class MealAdapter(var list: List<Meal>, var listeners: OnClickListeners, var isU
                 btnOrder.setOnClickListener {
                     listeners.onOrder(position, meal)
                 }
+                llSwitch.setOnClickListener {
+                    listeners.onNotHaveMeal(position, meal)
+                }
             }
         }
 
@@ -43,11 +47,19 @@ class MealAdapter(var list: List<Meal>, var listeners: OnClickListeners, var isU
                         placeholder(R.drawable.ic_image)
                     }
                 }
+                if (meal.isHave)
+                    llContainer.setBackgroundColor(Color.WHITE)
+                else
+                    llContainer.setBackgroundColor(Color.parseColor("#FFF7B2"))
                 switchMeal.isChecked = meal.isHave
 
                 //USER
                 if (isUser) {
                     btnOrder.show()
+                    if (meal.isHave)
+                        btnOrder.show()
+                    else
+                        btnOrder.hide()
                 }
                 //CHEF
                 else {
@@ -80,6 +92,7 @@ class MealAdapter(var list: List<Meal>, var listeners: OnClickListeners, var isU
         fun onEdit(position: Int, meal: Meal)
         fun onClick(position: Int, meal: Meal)
         fun onOrder(position: Int, meal: Meal)
+        fun onNotHaveMeal(position: Int, meal: Meal)
     }
 
 }
